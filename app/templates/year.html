@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<ul>
+	<a href="../">Back</a>
+	<br style="margin: 0 0 20px 0;">
+	<li><a href="/year=2016">2016</a></li>
+	<li><a href="/year=2017">2017</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<h1>This is year {{ yearNumber }}</h1>
+{% endblock %}

@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+<meta name="author" content="Alexander Christensen">
+<link rel="icon" href="">
+
+<title>Calender App</title>
+
+<!-- CSS files -->
+<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/base.css')}}">
+{% block extraCSS %} <!-- optional -->
+{% endblock %}
+</head>
+
+<body>
+<div id="calender-app-header"></div>
+<div id="calender-app-navbar">
+	{% block navbar %}
+	{% endblock %}
+	
+</div>
+<div id="calender-app-content">
+	{% block content %}
+	{% endblock %}	
+</div>
+
+<!-- div id="calender-app-footer"></div -->
+</body>
+</html>

@@ -1,0 +1,8 @@
+# ignore the user data saved in the database
+app.db
+
+# ignore all the compiled python files
+*.pyc
+
+# ignore the folder 'planlægning'
+planlægning/
