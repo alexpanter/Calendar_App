@@ -1,0 +1,33 @@
+/* custom variables */
+:root {
+	--calender-app-backcolor: #EEEEAA;
+	--calender-app-headercolor: #DDDDDD;
+	--calender-app-color1: #AAAAAA;
+	--calender-app-color2: #FFFFFF;
+};
+
+
+body {
+	background-color: var(--calender-app-backcolor);
+}
+
+
+#calender-app-header {
+	background-color: var(--calender-app-headercolor);
+	width: 100%;
+	height: 50px;
+	position: top;
+}
+
+#calender-app-navbar {
+	float: left;
+	height: 100%;
+	width: 160px;
+	border-right: 1px solid black;
+}
+
+#calender-app-content {
+	float: left;
+	margin: 0 0 0 0;
+	padding: 0 0 0 10px;
+}

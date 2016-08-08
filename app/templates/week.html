@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import 'object.html' as object %}
+
+{% block extraCSS %}
+<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/weekmode.css')}}">
+{% endblock %}
+
+{% block navbar %}
+<ul>
+	<a href="../">Back</a>
+	<br style="margin: 0 0 20px 0;">
+</ul>
+{% endblock %}
+
+{% block content %}
+<h1>{{ year }}, Week {{ week }}</h1>
+<table class="week-table">
+	<tr style="font-weight: bold; text-align: center;">
+		<td>Monday</td>
+		<td>Tuesday</td>
+		<td>Wednesday</td>
+		<td>Thursday</td>
+		<td>Friday</td>
+		<td>Saturday</td>
+		<td>Sunday</td>
+	</tr>
+	<tr>
+		{{ object.dayTasks(mon_t) }} <!-- MONDAY -->
+		{{ object.dayTasks(tue_t) }} <!-- TUESDAY -->
+		{{ object.dayTasks(wed_t) }} <!-- WEDNESDAY -->
+		{{ object.dayTasks(thu_t) }} <!-- THURSDAY -->
+		{{ object.dayTasks(fri_t) }} <!-- FRIDAY -->
+		{{ object.dayTasks(sat_t) }} <!-- SATURDAY -->
+		{{ object.dayTasks(sun_t) }} <!-- SUNDAY -->
+	</tr>
+</table>
+{% endblock %}
