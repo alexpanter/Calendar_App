@@ -1,0 +1,57 @@
+.week-table {
+	border-style: solid;
+	border-width: 2px;
+	border-color: grey;
+}
+
+.week-table tr {
+	background-color: #EEBBBB;
+}
+
+.week-table td {
+	width: 120px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: green;
+}
+
+
+#week-links-title {
+	padding: 0 0 0 12px;
+	font-weight: bold;
+	font-size: 1.35em;
+}
+
+.week-links-table {
+	width: 100%;
+}
+
+.week-links-table td {
+	padding: 0 0 0 15px;
+	width: 100%;
+	display: block;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 1em;
+}
+
+.week-links-table td:hover {
+	background-color: #CCC;
+	
+}
+
+#active-week-link {
+	background-color: #2eb82e;
+	color: #FFFFFF;
+}
+
+.week-links-table a,
+.week-links-table a:link,
+.week-links-table a:focus,
+.week-links-table a:hover,
+.week-links-table a:visited,
+.week-links-table a:active {
+	text-decoration: none;
+	color: inherit;
+	border: 0px solid black;
+}
+

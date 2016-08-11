@@ -13,3 +13,21 @@
 	{% endif %}
 </td>
 {% endmacro %}
+
+
+{% macro weekLinks(year,weeks,week) -%}
+<h4 id="week-links-title">Weeks in {{ year }}</h4>
+<table class="week-links-table">
+<thead>
+</thead>
+<tbody>
+	{% for w in weeks %}
+	{% if w is equalto week %}
+	<tr><td id="active-week-link"><a href="/{{ year }}/week={{ w }}"><div>Week {{ w }}</div></a></td></tr>
+	{% else %}
+	<tr><td><a href="/{{ year }}/week={{ w }}"><div>Week {{ w }}</div></a></td></tr>
+	{% endif %}
+	{% endfor %}
+</tbody>
+</table>
+{% endmacro %}

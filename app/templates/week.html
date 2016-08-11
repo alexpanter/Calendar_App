@@ -1,19 +1,28 @@
 {% extends "base.html" %}
 {% import 'object.html' as object %}
 
-{% block extraCSS %}
-<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/weekmode.css')}}">
-{% endblock %}
 
 {% block navbar %}
 <ul>
-	<a href="../">Back</a>
+	<a href="/{{ year }}">Back</a>
 	<br style="margin: 0 0 20px 0;">
 </ul>
+{{ object.weekLinks(year,weeks,week) }}
 {% endblock %}
 
 {% block content %}
-<h1>{{ year }}, Week {{ week }}</h1>
+<!-- HEADER -->
+<table>
+	<tr>
+		<td style="padding: 0 10px 0 10px;"><h1>{{ year }}, Week {{ week }}</h1></td>
+		<td style="padding: 0 10px 0 5px;"><a href="/{{ year }}/week={{ previous_week }}" class="btn btn-primary" role="button">Previous</a></td>
+		<td><a href="/{{ year }}/week={{ next_week }}" class="btn btn-primary" role="button">Next</button></td>
+	</tr>
+</table>
+
+
+
+<!-- CONTENT -->
 <table class="week-table">
 	<tr style="font-weight: bold; text-align: center;">
 		<td>Monday</td>
