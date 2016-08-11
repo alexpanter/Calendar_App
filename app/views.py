@@ -9,6 +9,17 @@ from flask import render_template
 def index_page():
     return render_template('index.html')
 
+@app.route('/<y>')
+def year_page(y):
+    weeks = [w for w in range(
+        1,date(int(y),12,28).isocalendar()[1] + 1)]
+    return render_template(
+        'year.html',
+        year=y,
+        weeks=weeks
+    )
+
+
 @app.route('/<y>/week=<w>')
 def week_page(y,w):
     # failcheck for wrong year
@@ -19,6 +30,8 @@ def week_page(y,w):
         return render_template('pageNotFound.html')
    # everything is okay 
     else:
+        weeks = [str(wk) for wk in range(
+            1,date(int(y),12,28).isocalendar()[1] + 1)]
         mon = datetime.strptime(y + '-W' + w + '-1', '%Y-W%W-%w').date()
         tue = datetime.strptime(y + '-W' + w + '-2', '%Y-W%W-%w').date()
         wed = datetime.strptime(y + '-W' + w + '-3', '%Y-W%W-%w').date()
@@ -53,6 +66,9 @@ def week_page(y,w):
             'week.html',
             year=y,
             week=w,
+            weeks=weeks,
+            previous_week=str(int(w) - 1),
+            next_week=str(int(w) + 1),
             mon_t=mon_t,
             tue_t=tue_t,
             wed_t=wed_t,

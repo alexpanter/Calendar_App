@@ -12,21 +12,26 @@
 
 <!-- CSS files -->
 <link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/base.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/custom.css')}}">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {% block extraCSS %} <!-- optional -->
 {% endblock %}
 </head>
 
 <body>
-<div id="calender-app-header"></div>
-<div id="calender-app-navbar">
+<div id="calendar-app-header"></div>
+
+<div id="calendar-app-navbar">
 	{% block navbar %}
 	{% endblock %}
-	
 </div>
-<div id="calender-app-content">
+
+<div id="calendar-app-content">
 	{% block content %}
 	{% endblock %}	
 </div>
+
+<div id="calendar-app-footer"></div>
 
 <!-- div id="calender-app-footer"></div -->
 </body>
