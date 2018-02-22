@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block navbar %}
-<ul>
-	<a href="{{ url_for('index_page') }}">Back</a>
-</ul>
-{% endblock %}
 
 {% block content %}
-<h1>The requested page could not be found</h1>
+<div class="container">
+	<div class="calendar-app-content">
+		<h1>The requested page could not be found</h1>
+		<p>This could be do to a spelling error in the browser URL.</p>
+	</div>
+</div>
 {% endblock %}

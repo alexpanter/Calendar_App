@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import 'object.html' as object %}
+
+{% block content %}
+<!-- left side menu, showing week number links -->
+<div id="calendar-app-navbar">
+	<ul>
+		<a href="{{ url_for ('week_page', y=year, w=week) }}">Back</a>
+		<br style="margin: 0 0 20px 0;">
+	</ul>
+	{{ object.weekLinks(year,weeks,week) }}
+</div>
+
+<div id="calendar-app-content" class="task-page-container">
+  <h2>Edit this Task</h2><br>
+   <form action="{{ url_for ('save_task', id=task.id, y=year, w=week, __METHOD_OVERRIDE__='POST') }}" method="post">
+     <h4><b>Title: </b></h4><input id="title" type="text" name="title" value="{{ task.title }}"><br>
+     <h4><b>Description: </b></h4><input id="description" type="text" name="description" value="{{ task.description }}"><br>
+
+     <h4><b>Start: </b></h4><input type="date" name="start-date" value="{{ task.start.date() }}" required> <label>Time</label>
+     <input type="number" name="start-hour" value="{{ task.start.time().hour }}" min="0" max="23" style="width:4em;" required> :
+     <input type="number" name="start-minute" value="{{ task.start.time().minute }}" min="0" max="59" style="width:4em;" required><br>
+
+     <h4><b>Stop: </b></h4><input type="date" name="stop-date" value="{{ task.stop.date() }}" required> <label>Time</label>
+     <input type="number" name="stop-hour" value="{{ task.stop.time().hour }}" min="0" max="23" style="width:4em;" required> :
+     <input type="number" name="stop-minute" value="{{ task.stop.time().minute }}" min="0" max="59" style="width:4em;" required><br><br>
+
+     <a href="{{ url_for ('week_page', y=year, w=week) }}" class="btn btn-danger">Cancel</a>
+     <input type="submit" value="Save Changes" class="btn btn-primary"><br><br>
+   </form>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ from flask_admin.contrib.sqla import ModelView
 
 
 # instantiating Flask-app
-app = Flask(__name__, static_folder = 'static')
+app = Flask(__name__, static_folder='static')
 
 
 # using the config file to.. ??
@@ -24,7 +24,7 @@ db = SQLAlchemy(app)
 
 
 # creating the admin panel
-admin = Admin(app, name = 'admin page', template_mode = "bootstrap3")
+admin = Admin(app, name='admin page', template_mode="bootstrap3")
 
 
 from app import views, models

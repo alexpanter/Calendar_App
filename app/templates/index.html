@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 
-{% block navbar %}
-<ul>
-	<a href="../">Back</a>
-	<br style="margin: 0 0 20px 0;">
-	<li><a href="/2016">2016</a></li>
-	<li><a href="/2017">2017</a></li>
-</ul>
-{% endblock %}
-
 {% block content %}
-<h1>Welcome to Calender App</h1>
+<div id="calendar-app-navbar">
+	<ul>
+		<br style="margin: 0 0 20px 0;">
+		<li><a href="/2016">2016</a></li>
+		<li><a href="/2017">2017</a></li>
+        <li><a href="/2018">2018</a></li>
+	</ul>
+</div>
+
+<div id="calendar-app-content">
+	<h1>Welcome Shadow Manager</h1>
+	<p>Visit the database <a href="/admin">here</a>.</p>
+    <p>Visit tasks <a href="/tasks">here</a>.</p>
+    <p>Visit calendar <a href="/calendar">here</a>.</p>
+</div>
 {% endblock %}

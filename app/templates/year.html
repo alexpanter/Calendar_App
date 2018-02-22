@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% import 'object.html' as object %}
 
-{% block navbar %}
-<ul>
-	<a href="../">Back</a>
-	<br style="margin: 0 0 20px 0;">
-</ul>
-{{ object.weekLinks(year,weeks,week) }}
-{% endblock %}
 
 {% block content %}
-<h1>This is year {{ year }}</h1>
+<div id="calendar-app-navbar">
+	<ul>
+		<a href="../">Back</a>
+		<br style="margin: 0 0 20px 0;">
+	</ul>
+	{{ object.weekLinks(year,weeks,week) }}
+</div>
+
+<div id="calendar-app-content">
+	<h1>This is year {{ year }}</h1>
+</div>
 {% endblock %}
