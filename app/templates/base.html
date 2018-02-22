@@ -11,28 +11,48 @@
 <title>Calender App</title>
 
 <!-- CSS files -->
-<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/base.css')}}">
-<link rel="stylesheet" type="text/css" href="{{url_for ('static', filename = 'css/custom.css')}}">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{url_for ('static', filename = 'css/base.css')}}">
+<link rel="stylesheet" href="{{url_for ('static', filename = 'css/custom.css')}}">
+<link rel="stylesheet" href=" {{url_for ('static', filename = 'bootstrap/css/bootstrap.min.css') }}"/>
 {% block extraCSS %} <!-- optional -->
 {% endblock %}
 </head>
 
+
 <body>
-<div id="calendar-app-header"></div>
+<!-- top navbar -->
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ url_for ('index_page') }}">Shadow_Manager</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{{ url_for ('tasks_page') }}">Tasks</a></li>
+				<li><a href="{{ url_for ('this_week') }}">Calendar</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<div id="calendar-app-navbar">
-	{% block navbar %}
-	{% endblock %}
-</div>
 
-<div id="calendar-app-content">
-	{% block content %}
-	{% endblock %}	
-</div>
+<!-- main content page -->
+{% block content %}
+{% endblock %}	
 
+
+<!-- custom footer -->
 <div id="calendar-app-footer"></div>
 
-<!-- div id="calender-app-footer"></div -->
+
+<!-- jQuery and bootstrap javascripts -->
+<script src="{{ url_for ('static', filename = 'scripts/jquery.min.js') }}"></script>
+<script src="{{ url_for ('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

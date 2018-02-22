@@ -1,12 +1,12 @@
 
-{% macro dayTasks(tasks) -%}
+{% macro dayTasks(tasks,functions) -%}
 <td style="text-align: center;">
 	{% if tasks is equalto [] %}
 		&lt;FRI&gt;
 	{% else %}
 		{% for t in tasks %}
-			<h4>{{ t.title }}</h4>
-			<h5>{{ t.start.hour }}:{{  t.start.minute }}  -  {{ t.stop.hour }}:{{ t.stop.minute }}</h5>
+			<h4><a href="/calendar_task/{{ t.id }}">{{ t.title }}</a></h4>
+			<h5>{{ functions.timespan_to_string(t.start,t.stop) }}</h5>
 				{{ t.description }}
 			<br style="margin: 0 0 20px 0;">
 		{% endfor %}

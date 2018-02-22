@@ -2,45 +2,50 @@
 {% import 'object.html' as object %}
 
 
-{% block navbar %}
-<ul>
-	<a href="/{{ year }}">Back</a>
-	<br style="margin: 0 0 20px 0;">
-</ul>
-{{ object.weekLinks(year,weeks,week) }}
-{% endblock %}
-
 {% block content %}
-<!-- HEADER -->
-<table>
-	<tr>
-		<td style="padding: 0 10px 0 10px;"><h1>{{ year }}, Week {{ week }}</h1></td>
-		<td style="padding: 0 10px 0 5px;"><a href="/{{ year }}/week={{ previous_week }}" class="btn btn-primary" role="button">Previous</a></td>
-		<td><a href="/{{ year }}/week={{ next_week }}" class="btn btn-primary" role="button">Next</button></td>
-	</tr>
-</table>
+<!-- left side menu, showing week number links -->
+<div id="calendar-app-navbar">
+	<ul>
+		<a href="/{{ year }}">Back</a>
+		<br style="margin: 0 0 20px 0;">
+	</ul>
+	{{ object.weekLinks(year,weeks,week) }}
+</div>
 
 
 
-<!-- CONTENT -->
-<table class="week-table">
-	<tr style="font-weight: bold; text-align: center;">
-		<td>Monday</td>
-		<td>Tuesday</td>
-		<td>Wednesday</td>
-		<td>Thursday</td>
-		<td>Friday</td>
-		<td>Saturday</td>
-		<td>Sunday</td>
-	</tr>
-	<tr>
-		{{ object.dayTasks(mon_t) }} <!-- MONDAY -->
-		{{ object.dayTasks(tue_t) }} <!-- TUESDAY -->
-		{{ object.dayTasks(wed_t) }} <!-- WEDNESDAY -->
-		{{ object.dayTasks(thu_t) }} <!-- THURSDAY -->
-		{{ object.dayTasks(fri_t) }} <!-- FRIDAY -->
-		{{ object.dayTasks(sat_t) }} <!-- SATURDAY -->
-		{{ object.dayTasks(sun_t) }} <!-- SUNDAY -->
-	</tr>
-</table>
+<!-- main content header, showing year and week number -->
+<div id="calendar-app-content">
+	<table>
+		<tr>
+			<td style="padding: 0 10px 0 10px;"><h1>{{ year }}, Week {{ week }}</h1></td>
+			<td style="padding: 0 10px 0 5px;"><a href="/{{ year }}/week={{ previous_week }}" class="btn btn-primary" role="button">Previous</a></td>
+			<td><a href="/{{ year }}/week={{ next_week }}" class="btn btn-primary" role="button">Next</a></td>
+		</tr>
+	</table>
+
+
+
+<!-- main content, displaying the calendar -->
+	<table class="week-table">
+		<tr style="font-weight: bold; text-align: center;">
+			<td>Monday<br>{{ functions.date_to_string(days[0]) }}</td>
+			<td>Tuesday<br>{{ functions.date_to_string(days[1]) }}</td>
+			<td>Wednesday<br>{{ functions.date_to_string(days[2]) }}</td>
+			<td>Thursday<br>{{ functions.date_to_string(days[3]) }}</td>
+			<td>Friday<br>{{ functions.date_to_string(days[4]) }}</td>
+			<td>Saturday<br>{{ functions.date_to_string(days[5]) }}</td>
+			<td>Sunday<br>{{ functions.date_to_string(days[6]) }}</td>
+		</tr>
+		<tr>
+			{{ object.dayTasks(tasks[0],functions) }} <!-- MONDAY -->
+			{{ object.dayTasks(tasks[1],functions) }} <!-- TUESDAY -->
+			{{ object.dayTasks(tasks[2],functions) }} <!-- WEDNESDAY -->
+			{{ object.dayTasks(tasks[3],functions) }} <!-- THURSDAY -->
+			{{ object.dayTasks(tasks[4],functions) }} <!-- FRIDAY -->
+			{{ object.dayTasks(tasks[5],functions) }} <!-- SATURDAY -->
+			{{ object.dayTasks(tasks[6],functions) }} <!-- SUNDAY -->
+		</tr>
+	</table>
+</div>
 {% endblock %}

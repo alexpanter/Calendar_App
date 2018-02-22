@@ -55,3 +55,7 @@
 	border: 0px solid black;
 }
 
+.task-page-container {
+    left-margin: 10px;
+    background-color: #FDD;
+}

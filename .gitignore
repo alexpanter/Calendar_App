@@ -6,3 +6,6 @@ app.db
 
 # ignore the folder 'planlægning'
 planlægning/
+app.db
+mig_og_emil.txt
+*/*.pyc

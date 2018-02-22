@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import 'object.html' as object %}
+
+
+{% block content %}
+<div class="container">
+	<h1>Calendar mode</h1>
+	<p>The Calendar mode allows you to browse your weekly events and keeping order on your day-to-day life.</p>
+	<p>You can edit, create or delete calendar events.</p>
+	<p>Go to <a href="{{ url_for ('this_week') }}">this week</a>.</p>
+</div>
+{% endblock %}

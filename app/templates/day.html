@@ -1,22 +1,25 @@
 {% extends "base.html" %}
 
-{% block navbar %}
-<ul>
-	<a href="../">Back</a>
-	<br style="margin: 0 0 20px 0;">
-	<li><a href="/week={{ calendar[1] }}">week {{ calendar[1] }}</a></li>
-</ul>
-{% endblock %}
-
 {% block content %}
-<h1>{{ today.strftime("%A") }}, {{ today.strftime("%B") }} {{ today.day }}. {{ today.year }}</h1>
-{% if tasks %}
-	{% for t in tasks %}
-		<h3>{{ t.title }}</h3>
-		<h4>{{ t.start.hour }}:{{  t.start.minute }}  -  {{ t.stop.hour }}:{{ t.stop.minute }}</h4>
-		<p>{{ t.description }}</p>
-	{% endfor %}
-{% else %}
-<p><FRI></p>
-{% endif %}
+<div id="calendar-app-navbar">
+	<ul>
+		<a href="../">Back</a>
+		<br style="margin: 0 0 20px 0;">
+		<li><a href="/week={{ calendar[1] }}">week {{ calendar[1] }}</a></li>
+	</ul>
+</div>
+
+
+<div class="calendar-app-content">
+	<h1>{{ today.strftime("%A") }}, {{ today.strftime("%B") }} {{ today.day }}. {{ today.year }}</h1>
+	{% if tasks %}
+		{% for t in tasks %}
+			<h3>{{ t.title }}</h3>
+			<h4>{{ t.start.hour }}:{{  t.start.minute }}  -  {{ t.stop.hour }}:{{ t.stop.minute }}</h4>
+			<p>{{ t.description }}</p>
+		{% endfor %}
+	{% else %}
+		<p><FRI></p>
+	{% endif %}
+</div>
 {% endblock %}
