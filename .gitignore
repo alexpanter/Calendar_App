@@ -12,5 +12,4 @@ mig_og_emil.txt
 */*.pyc
 
 # ignore venv
-venv/
-venv/*
+venv/lib/python2.7/site-packages/*
