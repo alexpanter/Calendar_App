@@ -177,5 +177,27 @@ def save_task(id, y, w):
         task.stop = datetime.strptime(new_stop, '%Y-%m-%d %H:%M')
 
         # db.session.add(<some_new_Task>)
-        db.session.commit() # store in database
+        db.session.commit()  # store in database
     return redirect('/' + y + '/week=' + w)
+
+
+@app.route('/calendar_task/<id>/delete?y=<y>&w=<w>', methods=['GET', 'POST'])
+def delete_task(id, y, w):
+    if request.method == 'POST':
+        task = Task.query.get(id)
+
+        # do something to delete this task!
+        db.session.delete(task)
+
+        db.session.commit()
+    return redirect('/' + y + '/week=' + w)
+
+
+# @app.route(...)
+# def create_new_task(<some_params>):
+#     task = Task()
+#     ... set task parameters ...
+#
+#     db.session.add(task)
+#     db.session.commit()
+#     return ""

@@ -12,7 +12,18 @@
 </div>
 
 <div id="calendar-app-content" class="task-page-container">
-  <h2>Edit this Task</h2><br>
+  <table style="margin: 0 10px 0 0;">
+    <tbody>
+      <tr>
+        <td style="padding-right: 10px;"><h2>Edit this Task</h2></td>
+        <td valign="bottom">
+          <form action="{{ url_for ('delete_task', id=task.id, y=year, w=week, __METHOD_OVERRIDE__='POST') }}" method="post" onsubmit="return confirm('Delete this task. This action cannot be undone! are you sure?');">
+            <input type="submit" value="Delete this task!" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
    <form action="{{ url_for ('save_task', id=task.id, y=year, w=week, __METHOD_OVERRIDE__='POST') }}" method="post">
      <h4><b>Title: </b></h4><input id="title" type="text" name="title" value="{{ task.title }}"><br>
      <h4><b>Description: </b></h4><input id="description" type="text" name="description" value="{{ task.description }}"><br>
@@ -25,7 +36,7 @@
      <input type="number" name="stop-hour" value="{{ task.stop.time().hour }}" min="0" max="23" style="width:4em;" required> :
      <input type="number" name="stop-minute" value="{{ task.stop.time().minute }}" min="0" max="59" style="width:4em;" required><br><br>
 
-     <a href="{{ url_for ('week_page', y=year, w=week) }}" class="btn btn-danger">Cancel</a>
+     <a href="{{ url_for ('week_page', y=year, w=week) }}" class="btn btn-warning">Cancel</a>
      <input type="submit" value="Save Changes" class="btn btn-primary"><br><br>
    </form>
 </div>
