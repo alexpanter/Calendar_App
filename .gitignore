@@ -3,9 +3,14 @@ app.db
 
 # ignore all the compiled python files
 .pyc
+*.pyc
 
 # ignore the folder 'planlægning'
 planlægning/
 app.db
 mig_og_emil.txt
 */*.pyc
+
+# ignore venv
+venv/
+venv/*
